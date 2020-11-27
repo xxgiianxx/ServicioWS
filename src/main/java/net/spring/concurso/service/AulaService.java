@@ -1,7 +1,7 @@
-package net.spring.concurso.dao;
+package net.spring.concurso.service;
 
 import net.spring.concurso.entity.Aula;
 
-public interface AulaDAO {
+public interface AulaService {
 	public void insertaAula(Aula obj);
 }
