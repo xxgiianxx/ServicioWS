@@ -40,18 +40,18 @@ public class Docente implements Serializable{
 	private Date fechaNacimiento;
 	
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne//(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCurso")
 	private Curso curso;
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne//(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCiclo")
 	private Ciclo ciclo;
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne//(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idInstitucion")
 	private Institucion institucion;
 
