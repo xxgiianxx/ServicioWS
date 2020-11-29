@@ -48,14 +48,14 @@ public class Prestamo implements Serializable {
 	
 	private String estado;
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne//(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idLibro")
 	private Libro libro;
 	
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne//(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idAlumno")
 	private Alumno alumno;
 

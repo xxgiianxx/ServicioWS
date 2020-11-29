@@ -1,10 +1,10 @@
-package net.spring.concurso.dao;
+package net.spring.concurso.service;
 
 import java.util.List;
 
 import net.spring.concurso.entity.Institucion;
 
-public interface InstitucionDAO {
+public interface InstitucionService {
 	public  List<Institucion> listaInstitucion();
 	public void insertaInstitucion(Institucion obj);
 }

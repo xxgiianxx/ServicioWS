@@ -37,8 +37,8 @@ public class Libro implements Serializable {
 	
 	
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne//(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idTipoLibro")
 	private TipoLibro tipolibro;
 

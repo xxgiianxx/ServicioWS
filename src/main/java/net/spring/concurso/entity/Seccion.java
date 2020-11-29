@@ -31,21 +31,21 @@ public class Seccion implements Serializable{
 	
 	
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne//(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCurso")
 	private Curso curso;
 	
 	
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
+	///@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne//(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idDocente")
 	private Docente docente;
 	
 	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne//(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCiclo")
 	private Ciclo ciclo;
 

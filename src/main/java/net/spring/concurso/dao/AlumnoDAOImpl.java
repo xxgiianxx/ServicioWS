@@ -22,12 +22,12 @@ public class AlumnoDAOImpl implements AlumnoDAO {
 	
 	@Transactional(readOnly = true)
 	@Override
-	public List<Libro> listaLibro() {
+	public List<Alumno> listaAlumno() {
 		List<Libro> lista=null;
 		Query query=null;
 		Session session=factory.getCurrentSession();
 		try {
-			String hql="select c from Libro c";
+			String hql="select c from Alumno c";
 			query=session.createQuery(hql);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -37,19 +37,17 @@ public class AlumnoDAOImpl implements AlumnoDAO {
 	
 	@Transactional
 	@Override
-	public Libro insertaActualizaLibro(Libro obj) {
-		  Session session=factory.getCurrentSession();
-		  Libro objSalida=null;
-		  try {
-		       objSalida=(Libro) session.save(obj);
-		     }catch (Exception e) {
-			 e.printStackTrace();
-		     }
-	          return objSalida;
+	public void insertaActualizaAlumno(Alumno obj) {
+		 Session session=factory.getCurrentSession();
+	     try {
+	        session.save(obj);
+	     }catch (Exception e) {
+		 e.printStackTrace();
+	     }
 	}
 	@Transactional
 	@Override
-	public void eliminaLibro(int id) {
+	public void eliminaAlumno(int id) {
 		Session session=factory.getCurrentSession();
 		try {
 		Alumno bean=session.get(Alumno.class, id);
@@ -60,7 +58,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
 	}
 	@Transactional(readOnly=true)
 	@Override
-	public List<Libro> listarPorNombre(String filtro) {
+	public List<Alumno> listarPorNombre(String filtro) {
 	       Session sesion=factory.getCurrentSession();
 	       List<Alumno> lista=null;
 		   Query query=null;
@@ -87,6 +85,18 @@ e.printStackTrace();
 	    }
 			return bean;
 		}
+
+	@Transactional
+	@Override
+	public void ActualizaAlumno(Alumno bean) {
+		Session session=factory.getCurrentSession();
+		try {
+			session.update(bean);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	}
 	
 	
