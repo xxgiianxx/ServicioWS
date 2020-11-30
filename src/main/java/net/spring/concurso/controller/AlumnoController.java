@@ -82,4 +82,10 @@ public class AlumnoController {
 		}
 	  
 
+		@GetMapping(path ="/findAlumno/{codigo}" )
+		@ResponseBody
+		public Alumno findComputadora(@PathVariable("codigo") int cod) {
+			return alumnoservice.buscaPorId(cod);
+		}
+		
 }
