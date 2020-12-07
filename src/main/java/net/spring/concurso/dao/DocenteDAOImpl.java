@@ -10,43 +10,56 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.spring.concurso.entity.Curso;
+
 import net.spring.concurso.entity.Docente;
+
 
 @Repository
 public class DocenteDAOImpl implements DocenteDAO{
 	
-	@Autowired
+	@Autowired	
 	private SessionFactory factory;
+	
 	
 	@Transactional(readOnly = true)
 	@Override
 	public List<Docente> listaDocente() {
-	      List<Docente> lista=null;
-	      Query query=null;
-	      Session session=factory.getCurrentSession();
-	      try {
+		List<Docente> lista=null;
+		Query query=null;
+		Session session=factory.getCurrentSession();
+		try {
 			String hql="select c from Docente c";
 			query=session.createQuery(hql);
 		} catch (Exception e) {
-	    e.printStackTrace();
+			e.printStackTrace();
 		}
 		return query.getResultList();
 	}
-	
+
 	@Transactional
 	@Override
-	public Docente insertaActualizaDocente(Docente obj) {
-		Session session=factory.getCurrentSession();
-		Docente objSalida=null;
-		try {
-		   objSalida=(Docente) session.save(obj);
-		 }catch (Exception e) {
-		   e.printStackTrace();
-		 }
-	return objSalida;
+	public void insertaActualizaDocente(Docente obj) {
+		 Session session=factory.getCurrentSession();
+	     try {
+	        session.save(obj);
+	     }catch (Exception e) {
+		 e.printStackTrace();
+	     }
+		
 	}
-	
+
+	@Transactional
+	@Override
+	public void ActualizaDocente(Docente bean) {
+		Session session=factory.getCurrentSession();
+		try {
+			session.update(bean);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 	@Transactional
 	@Override
 	public void eliminaDocente(int id) {
@@ -56,7 +69,8 @@ public class DocenteDAOImpl implements DocenteDAO{
 		session.delete(bean);
 		}catch (Exception e) {
           e.printStackTrace();
-        }		
+        }
+		
 	}
 
 	
@@ -67,9 +81,10 @@ public class DocenteDAOImpl implements DocenteDAO{
 	       List<Docente> lista=null;
 		   Query query=null;
 try {
-	String hql="select x from Docente x where x.nombre  LIKE :nombre";
+	String hql="select x from Docente x where x.nombre like  LIKE :nombre";
 	query=(Query) sesion.createQuery(hql);
 	query.setParameter("nombre", "%"+filtro + "%");
+	
 
 } catch (Exception e) {
 e.printStackTrace();
@@ -79,7 +94,7 @@ e.printStackTrace();
 
 	@Override
 	public Docente buscaPorId(int id) {
-		Docente bean=null;
+		  Docente bean=null;
 	       Session session=factory.getCurrentSession();
 	       try {  
 		   bean=session.get(Docente.class,id);
@@ -88,5 +103,7 @@ e.printStackTrace();
 	    }
 			return bean;
 	}
+	
+	
 
 }

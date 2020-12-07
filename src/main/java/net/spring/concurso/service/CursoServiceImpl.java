@@ -45,6 +45,11 @@ public class CursoServiceImpl implements CursoService{
 		return cursodao.buscaPorId(id);
 	}
 
+	@Override
+	public List<Curso> listaCurso() {
+		return cursodao.listaCurso();
+	}
+
 	
 
 }

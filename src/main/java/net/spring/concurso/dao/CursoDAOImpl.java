@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.spring.concurso.entity.Curso;
-import net.spring.concurso.entity.Usuario;
+
 
 import javax.persistence.Query;
 
@@ -99,6 +99,22 @@ e.printStackTrace();
     e.printStackTrace();	
     }
 		return bean;
+	}
+	
+	
+	@Transactional(readOnly = true)
+	@Override
+	public List<Curso> listaCurso() {
+		List<Curso> lista=null;
+		Query query=null;
+		Session session=factory.getCurrentSession();
+		try {
+			String hql="select c from Curso c";
+			query=session.createQuery(hql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return query.getResultList();
 	}
 
 	

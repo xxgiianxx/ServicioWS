@@ -10,18 +10,25 @@ import net.spring.concurso.entity.Docente;
 
 @Service
 public class DocenteServiceImpl implements DocenteService{
+
 	@Autowired
 	private DocenteDAO docentedao;
-
+	
 	@Override
 	public List<Docente> listaDocente() {
 		return docentedao.listaDocente();
 	}
 
 	@Override
-	public Docente insertaActualizaDocente(Docente obj) {
-		// TODO Auto-generated method stub
-		return docentedao.insertaActualizaDocente(obj);
+	public void insertaActualizaDocente(Docente obj) {
+		docentedao.insertaActualizaDocente(obj);
+		
+	}
+
+	@Override
+	public void ActualizaDocente(Docente bean) {
+		docentedao.ActualizaDocente(bean);
+		
 	}
 
 	@Override

@@ -1,9 +1,10 @@
 package net.spring.concurso.dao;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import net.spring.concurso.entity.Curso;
+
 
 
 
@@ -14,4 +15,5 @@ public interface CursoDAO {
 	public  List<Curso> listarTodos();
 	public  List<Curso> listarPorNombre(String filtro);
 	public  Curso buscaPorId(int id);
+	public  List<Curso> listaCurso();
 }

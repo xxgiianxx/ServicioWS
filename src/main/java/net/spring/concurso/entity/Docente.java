@@ -33,9 +33,7 @@ public class Docente implements Serializable{
 	private String nombre;
 	private String apaterno;
 	private String amaterno;
-	
-	@Column(name = "fechaNacimiento")
-	@Temporal(TemporalType.DATE)
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaNacimiento;
 	

@@ -1,9 +1,10 @@
 package net.spring.concurso.service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import net.spring.concurso.entity.Curso;
+
 
 
 public interface CursoService {
@@ -14,8 +15,6 @@ public interface CursoService {
 	public List<Curso> listarPorNombre(String filtro);
 	public Curso buscaPorId(int id);
 	
-	/*
-	public void save(Curso bean);
-	public List<Curso> listAll();*/
+	public  List<Curso> listaCurso();
 	
 }
